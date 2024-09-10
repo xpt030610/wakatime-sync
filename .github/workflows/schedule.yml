@@ -1,18 +1,14 @@
 name: Update gist with WakaTime summary
 
-on: workflow_dispatch
-# on:
-  # schedule:
-  #   - cron: '26 13 * * *'
+on:
+  schedule:
+    - cron: '04 03 * * *'
+  workflow_dispatch:
 jobs:
   update-gist:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
       - name: Update gist
         uses: superman66/wakatime-sync@master
         env:
